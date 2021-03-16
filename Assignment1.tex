@@ -142,76 +142,24 @@ https://github.com/Nik123-cpp/Assignment-1/blob/main/Assignment1.tex
 \section{Problem 3.4}
 The probability that a bulb produced by a factory will fuse after 150 days is 0.05.Find the probability that out of 5 such bulbs\\ (i) none \\(ii) not more than one\\(iii)more than one\\(iv) atleast one\\ will fuse after 150 days of use.\\\\
 \textbf{Solution}\\
-Let X be random variable which denoting number of bulbs fuses after 150 days of use,among the 5 bulbs.Then by Binomial Distribution.
+Let X be random variable which denoting number of bulbs fuses after 150 days of use,among the 5 bulbs.Then by Bionomial Distribution.
+
 \begin{align}
-    \pr{X=k}&=\binom{n}{k} p^k\brak{1-p}^{n-k}
-    \\
-    k=0,\dots,n
-    \label{eq:exam41_1}
+    \pr{X = r} = {n \choose r} p^r q^{n-r}\\
+    \pr{X \geq k} = \sum_{r = k}^n {n \choose r}p^r q^{n-r}\\
+    \pr{X \leq k} = \sum_{r = 0}^k {n \choose r}p^r q^{n-r}\\
+    \pr{X>k} = \sum_{r=k+1}^{n}{n\choose r}p^r q^{n-r}\\
+    n = 5,\quad p = 0.05,\quad q = 0.95
 \end{align}
-For given question n = 5 , p = 0.05,1-p = 0.95.
-\begin{enumerate}
-\item From \eqref{eq:exam41_1}
-\begin{align}
-    \pr{X=0}&=\binom{5}{0}(0.05)^0\brak{0.95}^{5}
-    =0.77378094 
-    \label{eq:exam41_2}
-\end{align}
-i.e the probability of all 5 bulbs working after 150 days of use
-\item simillarly
-\begin{align}
-    \pr{X\leq1}&=\sum_{k=0}^{1}\pr{X=k}
-    \\
-    &=\sum_{K=0}^{1}\binom{5}{k} (0.050^k\brak{0.95}^{5-k}
-    \\
-    &=0.9774075025
-    \label{eq:exam41_3}
-\end{align}
-i.e the probabity of either none of the bulbs or exactly one bulb will fuse after 150 days of use of 5 such bulbs.
-\item
-\begin{align}
-    \pr{X>1}&=\sum_{k=2}^{5}\pr{X=k}
-\end{align}
-Which is complement of second case i.e case(ii),So we can write 
-\begin{align}
-    \pr{X>1}&= 1-\pr{X\leq1}
-\end{align}
-From \eqref{eq:exam41_3}
-\begin{align}
-    \pr{X>1}&= 1-0.9774075025
-    \\
-    &=0.0225924975
-\end{align}
-\item
-\begin{align}
-    \pr{X\geq1}=\sum_{k=1}^{5}\pr{X=k}
-\end{align}
-which is complement of first case i.e case(i),So we can write 
-\begin{align}
-    \pr{X\geq1}&= 1-\pr{X<1}
-\end{align}
-From \eqref{eq:exam41_2}
-\begin{align}
-    \pr{X\geq1}&= 1-0.77378094
-    \\
-    &=0.22621906   
-\end{align}
-\newpage Below  table is indicating probability of various events to occur\\
-\begin{center}
- \begin{tabular}{||c|| c ||} 
- \hline
- Number of bulbs fuses after 150days of use among 5 bulbs
- is & Probability for the event to occur\\ [0.5ex] 
- \hline\hline
- none &  0.77378094\\ 
- \hline
- not more than 1 & 0.977407502 \\
- \hline
- more than 1 & 0.022592497 \\
- \hline
- atleast 1 & 0.22621906 \\
- \hline
+\begin{tabular}{|c|c|c|c|c|}
+    \hline
+    n &  5 & 5 & 5& 5\\
+    \hline
+    Condition & \pr{X = 0} & \pr{X\leq1} & \pr{X > 1} & \pr{X \geq1}\\
+    \hline
+    Value & 0.77378 & 0.97740 & 0.02259 & 0.22621\\
+    \hline
+    Case & $(i)$ & $(ii)$ & $(iii)$ & $(iv)$\\
+    \hline
 \end{tabular}
-\end{center}
-\end{enumerate}
 \end{document}
